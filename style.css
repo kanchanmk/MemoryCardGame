@@ -1,7 +1,17 @@
 .card {
-  height: 300px;
-  width: 200px;
+  height: 100px;
+  width: 50px;
   border: 1px solid black;
+  margin: 10px;
 }
+.cardcontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.flipped {
+  background-color: green;
+}
+
 @media screen and (min-width: 768px) {
 }
