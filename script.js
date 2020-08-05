@@ -31,6 +31,38 @@ let cardList = [
     name: "card4",
     shape: "square",
   },
+  {
+    name: "card5",
+    shape: "circle",
+  },
+  {
+    name: "card6",
+    shape: "circle",
+  },
+  {
+    name: "card7",
+    shape: "rhombus",
+  },
+  {
+    name: "card8",
+    shape: "rhombus",
+  },
+  {
+    name: "card9",
+    shape: "rectangle",
+  },
+  {
+    name: "card10",
+    shape: "rectangle",
+  },
+  {
+    name: "card11",
+    shape: "hexagon",
+  },
+  {
+    name: "card12",
+    shape: "hexagon",
+  },
 ];
 
 cardList.forEach((card) => {
@@ -47,13 +79,17 @@ cardContainer.addEventListener("click", (e) => {
     cardClicked.classList.add("flipped");
     cardClicked.innerText = cardClicked.getAttribute("data-shape");
     clickCount++;
-    let shape1 = cardClicked.getAttribute("data-shape");
+    let shape2 = cardClicked.getAttribute("data-shape");
+    let name2 = cardClicked.getAttribute("name");
     if (clickCount === 1) {
       firstClick = cardClicked;
     } else if (clickCount === 2) {
-      let shape2 = firstClick.getAttribute("data-shape");
-      if (shape1 === shape2) {
-        console.log("found match");
+      let shape1 = firstClick.getAttribute("data-shape");
+      let name1 = firstClick.getAttribute("name");
+      clickCount = 0;
+      if (shape1 === shape2 && name1 != name2) {
+        cardClicked.classList.add("hidden");
+        firstClick.classList.add("hidden");
       } else {
         console.log("try again");
       }
