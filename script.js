@@ -36,3 +36,27 @@ let cardList = [
 cardList.forEach((card) => {
   makeCard(card.name, card.shape);
 });
+
+let firstClick = null;
+let clickCount = 0;
+cardContainer.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(e.target);
+  let cardClicked = e.target;
+  if (cardClicked.classList.contains("card")) {
+    cardClicked.classList.add("flipped");
+    cardClicked.innerText = cardClicked.getAttribute("data-shape");
+    clickCount++;
+    let shape1 = cardClicked.getAttribute("data-shape");
+    if (clickCount === 1) {
+      firstClick = cardClicked;
+    } else if (clickCount === 2) {
+      let shape2 = firstClick.getAttribute("data-shape");
+      if (shape1 === shape2) {
+        console.log("found match");
+      } else {
+        console.log("try again");
+      }
+    }
+  }
+});
