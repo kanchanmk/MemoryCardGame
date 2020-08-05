@@ -13,5 +13,12 @@
   background-color: green;
 }
 
+.hidden {
+  visibility: hidden;
+  height: 100px;
+  width: 50px;
+  margin: 10px;
+}
+
 @media screen and (min-width: 768px) {
 }
