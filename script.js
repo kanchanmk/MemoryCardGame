@@ -95,6 +95,8 @@ layoutTheCards();
 // };
 let firstClick = null;
 let clickCount = 0;
+let pairs = 6;
+
 cardContainer.addEventListener("click", (e) => {
   e.preventDefault();
   console.log(e.target);
@@ -115,6 +117,16 @@ cardContainer.addEventListener("click", (e) => {
       if (shape1 === shape2 && name1 != name2) {
         cardClicked.classList.add("hidden");
         firstClick.classList.add("hidden");
+        pairs--;
+        if (pairs === 0) {
+          // console.log("you win!!");
+          // let youWin = document.querySelector(".youwin");
+          let youwin = document.createElement("div");
+          youwin.classList.add("youwin");
+          youwin.innerText = "YOU WIN!!!";
+          startDiv.append(youwin);
+          gameBoard.append(startDiv);
+        }
       } else {
         setTimeout(function () {
           firstClick.classList.remove("flipped");
