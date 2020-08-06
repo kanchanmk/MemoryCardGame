@@ -90,7 +90,9 @@ const layoutTheCards = () => {
   });
 };
 layoutTheCards();
-
+// const log = () => {
+//   console.log("trying");
+// };
 let firstClick = null;
 let clickCount = 0;
 cardContainer.addEventListener("click", (e) => {
@@ -103,6 +105,7 @@ cardContainer.addEventListener("click", (e) => {
     clickCount++;
     let shape2 = cardClicked.getAttribute("data-shape");
     let name2 = cardClicked.getAttribute("name");
+
     if (clickCount === 1) {
       firstClick = cardClicked;
     } else if (clickCount === 2) {
@@ -113,7 +116,12 @@ cardContainer.addEventListener("click", (e) => {
         cardClicked.classList.add("hidden");
         firstClick.classList.add("hidden");
       } else {
-        console.log("try again");
+        setTimeout(function () {
+          firstClick.classList.remove("flipped");
+          cardClicked.classList.remove("flipped");
+          firstClick.innerText = "";
+          cardClicked.innerText = "";
+        }, 1000);
       }
     }
   }

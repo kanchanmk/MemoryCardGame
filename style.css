@@ -3,14 +3,26 @@
   width: 50px;
   border: 1px solid black;
   margin: 10px;
+  background-color: blue;
 }
 .cardcontainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flipped {
   background-color: green;
+  transform-style: preserve-3d;
+  transition-duration: 0.5s;
+  transform: rotateY(180deg);
+}
+
+.flipback {
+  transition-delay: 0.5s;
+  transform-style: preserve-3d;
+  transition-duration: 4s;
+  transform: rotateY(180deg);
 }
 
 .hidden {
