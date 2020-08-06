@@ -6,11 +6,14 @@ let cardContainer = document.querySelector(".cardcontainer");
 
 let startDiv = document.querySelector(".start-function");
 
-const makeCard = (name, shape) => {
+const makeCard = (name, shape, image) => {
   let card = document.createElement("div");
   card.classList.add("card");
   card.setAttribute("name", name);
   card.setAttribute("data-shape", shape);
+  const imgTag = document.createElement("img");
+  imgTag.setAttribute("src", image);
+  card.append(imgTag);
   console.log(card);
   cardContainer.append(card);
   return card;
@@ -20,50 +23,62 @@ let cardList = [
   {
     name: "card1",
     shape: "triangle",
+    image: "/images/yoda.png",
   },
   {
     name: "card2",
     shape: "triangle",
+    image: "yoda.png",
   },
   {
     name: "card3",
     shape: "square",
+    // image:
   },
   {
     name: "card4",
     shape: "square",
+    // image:
   },
   {
     name: "card5",
     shape: "circle",
+    // image:
   },
   {
     name: "card6",
     shape: "circle",
+    // image:
   },
   {
     name: "card7",
     shape: "rhombus",
+    // image:
   },
   {
     name: "card8",
     shape: "rhombus",
+    // image:
   },
   {
     name: "card9",
     shape: "rectangle",
+    // image:
   },
   {
     name: "card10",
     shape: "rectangle",
+    // image:
   },
   {
     name: "card11",
     shape: "hexagon",
+    // image:
   },
   {
     name: "card12",
     shape: "hexagon",
+    // image:
   },
 ];
 
@@ -86,7 +101,7 @@ shuffle(cardList);
 // function to layout the cards. Reused in on reset
 const layoutTheCards = () => {
   cardList.forEach((card) => {
-    makeCard(card.name, card.shape);
+    makeCard(card.name, card.shape, card.image);
   });
 };
 layoutTheCards();
