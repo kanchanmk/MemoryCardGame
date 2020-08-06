@@ -20,5 +20,24 @@
   margin: 10px;
 }
 
+.start-function {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: grey;
+  top: 0px;
+  z-index: 2;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start {
+  height: 25%;
+  width: 25%;
+  border-radius: 15px;
+}
+
 @media screen and (min-width: 768px) {
 }
