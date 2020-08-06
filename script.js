@@ -124,15 +124,17 @@ const startBtn = document.querySelector(".start");
 startBtn.addEventListener("click", () => {
   startDiv.remove();
   // start the timer
+  let timeleft = 60;
+  let downloadTimer = setInterval(function () {
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      document.querySelector(".timer").innerText = "Game Over";
+    } else {
+      document.querySelector(".timer").innerText = timeleft;
+    }
+    timeleft -= 1;
+  }, 1000);
 });
-
-// const timer;
-// const seconds = 60;
-// const countDown = (()=>{
-//     seconds--
-//     if (seconds < 60){
-//     }
-// })
 
 const resetBtn = document.querySelector(".reset");
 
