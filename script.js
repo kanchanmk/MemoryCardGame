@@ -189,7 +189,9 @@ playAgain.addEventListener("click", () => {
       clearInterval(downloadTimer);
       document.querySelector(".timer").innerText = "Game Over";
     } else {
-      document.querySelector(".timer").innerText = timeleft;
+      document.querySelector(
+        ".timer"
+      ).innerText = `Time Remaining: ${timeleft} s`;
     }
     timeleft -= 1;
   }, 1000);
@@ -206,7 +208,9 @@ startBtn.addEventListener("click", () => {
       clearInterval(downloadTimer);
       document.querySelector(".timer").innerText = "Game Over";
     } else {
-      document.querySelector(".timer").innerText = timeleft;
+      document.querySelector(
+        ".timer"
+      ).innerText = `Time Remaining: ${timeleft} s`;
     }
     timeleft -= 1;
   }, 1000);
