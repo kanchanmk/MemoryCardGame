@@ -144,17 +144,30 @@ cardContainer.addEventListener("click", (e) => {
           let youwin = document.createElement("div");
           youwin.classList.add("youwin");
           youwin.innerText = "YOU WIN!!!";
-          startDiv.append(youwin);
+          // startDiv.append(youwin);
+          let playAgain = document.querySelector(".play-again");
+          console.log(playAgain);
+          playAgain.classList.remove("hidden-play");
+          startBtn.classList.add("hidden");
           gameBoard.append(startDiv);
         }
       } else {
         setTimeout(function () {
           firstClick.classList.remove("open");
           cardClicked.classList.remove("open");
-          cardClicked.classList.add("card");
+          cardClicked.style.backgroundImage = `url("/images/Star_Wars_Logo.svg")`;
+          firstClick.style.backgroundImage = `url("/images/Star_Wars_Logo.svg")`;
+          cardClicked.style.backgroundPosition = "center";
+          firstClick.style.backgroundPosition = "center";
+          firstClick.style.backgroundRepeat = "repeat";
+          cardClicked.style.backgroundRepeat = "repeat";
+          cardClicked.style.backgroundImage = "contain";
+          firstClick.style.backgroundImage = "contain";
+          // firstClick.classList.add("card");
+          // cardClicked.classList.rem("card");
           firstClick.innerText = "";
           cardClicked.innerText = "";
-        }, 1000);
+        }, 800);
       }
     }
   }
@@ -182,7 +195,7 @@ const resetBtn = document.querySelector(".reset");
 // reset button handler
 resetBtn.addEventListener("click", () => {
   shuffle(cardList);
-  // cardContainer.innerHTML = "";
-  // layoutTheCards();
-  location.reload(); // reload the page
+  cardContainer.innerHTML = "";
+  layoutTheCards();
+  // .reload(); // reload the page
 });
