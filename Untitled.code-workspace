@@ -1,0 +1,16 @@
+{
+  "folders": [
+	{
+		"name": "groupProjectMemoryGame",
+		"path": "."
+	},
+	{
+		"name": "images",
+		"path": "../../../Documents/images"
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5508,
+    "liveServer.settings.multiRootWorkspaceName": "groupProjectMemoryGame"
+  }
+}
