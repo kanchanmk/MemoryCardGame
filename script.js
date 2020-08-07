@@ -6,6 +6,8 @@ let cardContainer = document.querySelector(".cardcontainer");
 
 let startDiv = document.querySelector(".start-function");
 
+let downloadTimer = null;
+
 const makeCard = (name, shape, image) => {
   let card = document.createElement("div");
   card.classList.add("card");
@@ -144,12 +146,13 @@ cardContainer.addEventListener("click", (e) => {
           let youwin = document.createElement("div");
           youwin.classList.add("youwin");
           youwin.innerText = "YOU WIN!!!";
-          // startDiv.append(youwin);
+          startDiv.append(youwin);
+          gameBoard.append(startDiv);
           let playAgain = document.querySelector(".play-again");
           console.log(playAgain);
           playAgain.classList.remove("hidden-play");
           startBtn.classList.add("hidden");
-          gameBoard.append(startDiv);
+          clearInterval(downloadTimer);
         }
       } else {
         setTimeout(function () {
@@ -172,14 +175,16 @@ cardContainer.addEventListener("click", (e) => {
     }
   }
 });
-
-const startBtn = document.querySelector(".start");
+const playAgain = document.querySelector(".play-again");
 // start button handler
-startBtn.addEventListener("click", () => {
+playAgain.addEventListener("click", () => {
+  shuffle(cardList);
+  cardContainer.innerHTML = "";
+  layoutTheCards();
   startDiv.remove();
   // start the timer
   let timeleft = 60;
-  let downloadTimer = setInterval(function () {
+  downloadTimer = setInterval(function () {
     if (timeleft <= 0) {
       clearInterval(downloadTimer);
       document.querySelector(".timer").innerText = "Game Over";
@@ -190,12 +195,29 @@ startBtn.addEventListener("click", () => {
   }, 1000);
 });
 
-const resetBtn = document.querySelector(".reset");
+const startBtn = document.querySelector(".start");
+// start button handler
+startBtn.addEventListener("click", () => {
+  startDiv.remove();
+  // start the timer
+  let timeleft = 60;
+  downloadTimer = setInterval(function () {
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      document.querySelector(".timer").innerText = "Game Over";
+    } else {
+      document.querySelector(".timer").innerText = timeleft;
+    }
+    timeleft -= 1;
+  }, 1000);
+});
+
+// const resetBtn = document.querySelector(".reset");
 
 // reset button handler
-resetBtn.addEventListener("click", () => {
-  shuffle(cardList);
-  cardContainer.innerHTML = "";
-  layoutTheCards();
-  // .reload(); // reload the page
-});
+// resetBtn.addEventListener("click", () => {
+//   shuffle(cardList);
+//   cardContainer.innerHTML = "";
+//   layoutTheCards();
+// .reload(); // reload the page
+// });
